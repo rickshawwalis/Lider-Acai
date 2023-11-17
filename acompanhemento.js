@@ -116,12 +116,12 @@ function validarSelecoes() {
     const textoParaEnviar =
     `Olá. Gostaria de pedir o produto abaixo:
     \nPRODUTO
-    \nProduto: ${escolhaProduto}
+    \n->Produto: ${escolhaProduto}
     \nCOMPLEMENTO
-    \nCobertura: ${escolhaCobertura}
-    \nFrutas: ${escolhaFrutas.join(', ')}
-    \nComplementos: ${escolhaComplementos.join(', ')}
-    \nExtras: ${escolhaExtras.join(', ')}`;
+    \n->Cobertura: ${escolhaCobertura}
+    \n->Frutas: ${escolhaFrutas.join(', ')}
+    \n->Complementos: ${escolhaComplementos.join(', ')}
+    \n->Extras: ${escolhaExtras.join(', ')}`;
 
     const codigoPais = '55';  // Substitua pelo código do país desejado
     const numeroTelefone = '87991614277';  // Substitua pelo número do seu telefone com o código do país
