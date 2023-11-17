@@ -117,7 +117,7 @@ function validarSelecoes() {
     `Olá. Gostaria de pedir o produto abaixo:
     \nPRODUTO
     \n->Produto: ${escolhaProduto}
-    \nCOMPLEMENTO
+    \nCOMPLEMENTOS
     \n->Cobertura: ${escolhaCobertura}
     \n->Frutas: ${escolhaFrutas.join(', ')}
     \n->Complementos: ${escolhaComplementos.join(', ')}
