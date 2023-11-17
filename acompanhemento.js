@@ -114,7 +114,7 @@ function validarSelecoes() {
     }
 
     const textoParaEnviar =
-    `Olá. Gostaria de pedir o produto abaixo:
+    `Olá , Gostaria de Realizar Meu Pedido ❤️:
     \nTAMANHO
     \nProduto: ${escolhaProduto}
     \nCobertura: ${escolhaCobertura}
