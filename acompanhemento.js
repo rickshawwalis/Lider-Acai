@@ -114,8 +114,10 @@ function validarSelecoes() {
     }
 
     const textoParaEnviar =
-    `Obrigado pelo o contato, estaremos respondendo o seu pedido o quando antes!
+    `Olá. Gostaria de pedir o produto abaixo:
+    \nPRODUTO
     \nProduto: ${escolhaProduto}
+    \nCOMPLEMENTO
     \nCobertura: ${escolhaCobertura}
     \nFrutas: ${escolhaFrutas.join(', ')}
     \nComplementos: ${escolhaComplementos.join(', ')}
