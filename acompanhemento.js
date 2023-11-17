@@ -4,6 +4,30 @@ let escolhaFrutas = [];
 let escolhaComplementos = [];
 let escolhaExtras = [];
 
+
+//TRECHO PARA CAPTURAR OS DADOS DA PRIMEIRA PÁGINA
+
+function selecionarProduto() {
+    var produtos = document.querySelectorAll('input[name="produtos"]:checked');
+    var escolhas = [];
+
+    produtos.forEach(function (produto) {
+        escolhas.push(produto.value);
+    });
+
+    // Verificar se pelo menos um produto foi selecionado
+    if (escolhas.length === 0) {
+        alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
+        return; // Impede o redirecionamento se nenhum produto for selecionado
+    }
+
+    // Armazena as escolhas no localStorage
+    localStorage.setItem('escolhas', JSON.stringify(escolhas));
+
+    // Redirecionar para a segunda página após a escolha do produto
+    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
+}
+
 // Adicione este trecho para obter a escolha do produto do localStorage
 document.addEventListener('DOMContentLoaded', function () {
     // Recupera as escolhas do localStorage
@@ -16,48 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-function selecionarProduto() {
-    var produtos = document.querySelectorAll('input[name="produtos"]:checked');
-    var escolhas = [];
-
-    produtos.forEach(function (produto) {
-        escolhas.push(produto.value);
-    });
-
-    // Verificar se pelo menos um produto foi selecionado
-    if (escolhas.length === 0) {
-        alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
-        return; // Impede o redirecionamento se nenhum produto for selecionado
-    }
-
-    // Armazena as escolhas no localStorage
-    localStorage.setItem('escolhas', JSON.stringify(escolhas));
-
-    // Redirecionar para a segunda página após a escolha do produto
-    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
-}
-
-function selecionarProduto() {
-    var produtos = document.querySelectorAll('input[name="produtos"]:checked');
-    var escolhas = [];
-
-    produtos.forEach(function (produto) {
-        escolhas.push(produto.value);
-    });
-
-    // Verificar se pelo menos um produto foi selecionado
-    if (escolhas.length === 0) {
-        alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
-        return; // Impede o redirecionamento se nenhum produto for selecionado
-    }
-
-    // Armazena as escolhas no localStorage
-    localStorage.setItem('escolhas', JSON.stringify(escolhas));
-
-    // Redirecionar para a segunda página após a escolha do produto
-    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
-}
-
+//TRECHO PARA CAPTURAR OS DADOS DA SEGUNDA PÁGINA
 function validarSelecoes() {
     // Restante do seu código...
 
@@ -113,8 +96,9 @@ function validarSelecoes() {
         return false; // interrompe a execução da função sem redirecionar
     }
 
+    //TRECHO PARA MANDAR A MENSAGEM VIA ZAP
     const textoParaEnviar =
-    `Olá , Gostaria de Realizar Meu Pedido:
+        `Olá , Gostaria de Realizar Meu Pedido:
     \nTamanho
     Produto: ${escolhaProduto}
     \nAcompanhamentos
@@ -130,4 +114,22 @@ function validarSelecoes() {
     window.location.href = linkWhatsApp;
 
     return false;
+}
+
+
+function calcularSoma() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    var total = 0;
+
+    checkboxes.forEach(function (checkbox) {
+        var label = checkbox.nextElementSibling; // Próximo elemento no DOM é o label
+        var valorTexto = label.textContent.trim();
+        var valor = parseFloat(valorTexto.split('R$')[1].replace(',', '.'));
+
+        if (!isNaN(valor)) {
+            total += valor;
+        }
+    });
+
+    alert('Total: R$ ' + total.toFixed(2));
 }
