@@ -92,7 +92,7 @@ function validarSelecoes() {
         contadorFrutas > 2 ||
         contadorComplementos > 5
     ) {
-        alert("Por favor, siga as condições de seleção.");
+        alert("Por favor, escolha apenas a quantidade de OPÇÕES permitida.");
         return false; // interrompe a execução da função sem redirecionar
     }
 
@@ -109,19 +109,21 @@ function validarSelecoes() {
         escolhaFrutas.length === 0 ||
         escolhaComplementos.length === 0
     ) {
-        alert("Por favor, faça pelo menos uma seleção em cada categoria.");
+        alert("Por favor, escolha ao menos uma seleção em cada categoria -> COBERTURA/FRUTAS/COMPLEMENTO.");
         return false; // interrompe a execução da função sem redirecionar
     }
 
     const textoParaEnviar =
-        `Produto: ${escolhaProduto}
+    `Obrigado pelo o contato, estaremos respondendo o seu pedido o quando antes!
+    \nProduto: ${escolhaProduto}
     \nCobertura: ${escolhaCobertura}
     \nFrutas: ${escolhaFrutas.join(', ')}
     \nComplementos: ${escolhaComplementos.join(', ')}
     \nExtras: ${escolhaExtras.join(', ')}`;
 
+    const codigoPais = '55';  // Substitua pelo código do país desejado
     const numeroTelefone = '87991614277';  // Substitua pelo número do seu telefone com o código do país
-    const linkWhatsApp = `https://wa.me/${numeroTelefone}?text=${encodeURIComponent(textoParaEnviar)}`;
+    const linkWhatsApp = `https://wa.me/${codigoPais}${numeroTelefone}?text=${encodeURIComponent(textoParaEnviar)}`;
 
     window.location.href = linkWhatsApp;
 
