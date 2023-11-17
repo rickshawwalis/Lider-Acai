@@ -17,13 +17,45 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function selecionarProduto() {
-    // Lógica para escolher o produto - substitua conforme necessário
-    const selecaoProdutoInput = document.getElementById('selecaoProduto'); // Substitua 'selecaoProduto' pelo ID ou nome do seu campo de seleção
-    if (!selecaoProdutoInput || !selecaoProdutoInput.value) {
-        alert('Por favor, selecione um produto antes de prosseguir.');
-        return;
+    var produtos = document.querySelectorAll('input[name="produtos"]:checked');
+    var escolhas = [];
+
+    produtos.forEach(function (produto) {
+        escolhas.push(produto.value);
+    });
+
+    // Verificar se pelo menos um produto foi selecionado
+    if (escolhas.length === 0) {
+        alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
+        return; // Impede o redirecionamento se nenhum produto for selecionado
     }
-    escolhaProduto = selecaoProdutoInput.value;
+
+    // Armazena as escolhas no localStorage
+    localStorage.setItem('escolhas', JSON.stringify(escolhas));
+
+    // Redirecionar para a segunda página após a escolha do produto
+    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
+}
+
+function selecionarProduto() {
+    var produtos = document.querySelectorAll('input[name="produtos"]:checked');
+    var escolhas = [];
+
+    produtos.forEach(function (produto) {
+        escolhas.push(produto.value);
+    });
+
+    // Verificar se pelo menos um produto foi selecionado
+    if (escolhas.length === 0) {
+        alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
+        return; // Impede o redirecionamento se nenhum produto for selecionado
+    }
+
+    // Armazena as escolhas no localStorage
+    localStorage.setItem('escolhas', JSON.stringify(escolhas));
+
+    // Redirecionar para a segunda página após a escolha do produto
+    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
 }
 
 function validarSelecoes() {
