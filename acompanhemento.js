@@ -4,8 +4,61 @@ let escolhaFrutas = [];
 let escolhaComplementos = [];
 let escolhaExtras = [];
 
+function recuperarValorProduto() {
+    // Recuperar o valor armazenado na localStorage
+    var valorProdutoSelecionado = localStorage.getItem('valorProdutoSelecionado');
 
-//TRECHO PARA CAPTURAR OS DADOS DA PRIMEIRA PÁGINA
+    // Verificar se o valor é válido antes de adicionar ao total
+    if (!isNaN(parseFloat(valorProdutoSelecionado))) {
+        return parseFloat(valorProdutoSelecionado);
+    } else {
+        return 0;
+    }
+}
+
+function calcularSoma() {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    var total = 0;
+
+    checkboxes.forEach(function (checkbox) {
+        var valorTexto = checkbox.value.trim();
+        var valor = extrairValor(valorTexto);
+
+        if (!isNaN(valor)) {
+            total += valor;
+        }
+    });
+
+    // Adicionar o valor do produto ao total
+    total += recuperarValorProduto();
+
+    // Recuperar o valor armazenado na sessionStorage
+    var valorNumericoSelecionado = parseFloat(sessionStorage.getItem('valorNumericoSelecionado')) || 0;
+
+    // Verificar se o valor é válido antes de adicionar ao total
+    if (!isNaN(valorNumericoSelecionado)) {
+        total += valorNumericoSelecionado;
+    }
+
+    return total.toFixed(2);
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Recuperar o valor do produto ao carregar a página
+    escolhaProduto = localStorage.getItem('produtoSelecionado') || '';
+    const escolhasSalvas = localStorage.getItem('escolhas');
+
+    if (escolhasSalvas) {
+        const escolhas = JSON.parse(escolhasSalvas);
+        escolhaProduto = escolhas[0];
+    }
+});
+
+function extrairValor(texto) {
+    var valor = parseFloat(texto.replace(",", ".").replace(/[^\d.-]/g, ''));
+
+    return isNaN(valor) ? 0 : valor;
+}
 
 function selecionarProduto() {
     var produtos = document.querySelectorAll('input[name="produtos"]:checked');
@@ -15,35 +68,29 @@ function selecionarProduto() {
         escolhas.push(produto.value);
     });
 
-    // Verificar se pelo menos um produto foi selecionado
     if (escolhas.length === 0) {
         alert('Por favor, selecione pelo menos um produto antes de prosseguir.');
-        return; // Impede o redirecionamento se nenhum produto for selecionado
+        return;
     }
 
-    // Armazena as escolhas no localStorage
     localStorage.setItem('escolhas', JSON.stringify(escolhas));
 
-    // Redirecionar para a segunda página após a escolha do produto
-    window.location.href = 'pagina-acompanhamento.html'; // Substitua 'pagina-acompanhamento.html' pelo nome real do seu arquivo HTML da segunda página
+    window.location.href = 'pagina-acompanhamento.html';
 }
 
-// Adicione este trecho para obter a escolha do produto do localStorage
 document.addEventListener('DOMContentLoaded', function () {
-    // Recupera as escolhas do localStorage
+
     const escolhasSalvas = localStorage.getItem('escolhas');
     if (escolhasSalvas) {
-        // O conteúdo do localStorage é uma string JSON, então você precisa analisá-lo
+
         const escolhas = JSON.parse(escolhasSalvas);
-        // A primeira escolha do produto é armazenada na variável escolhaProduto
+
         escolhaProduto = escolhas[0];
     }
 });
 
-//TRECHO PARA CAPTURAR OS DADOS DA SEGUNDA PÁGINA
+//DADOS SELEÇÃO PAGINA 2
 function validarSelecoes() {
-    // Restante do seu código...
-
     const cobertura = document.getElementsByName('cobertura');
     escolhaCobertura = [];
     for (let i = 0; i < cobertura.length; i++) {
@@ -76,39 +123,59 @@ function validarSelecoes() {
         }
     }
 
-    // Verifica se as condições de seleção são atendidas
     if (
         escolhaCobertura.length > 1 ||
         escolhaFrutas.length > 2 ||
         escolhaComplementos.length > 5
     ) {
         alert("Por favor, escolha apenas a quantidade de OPÇÕES permitida.");
-        return false; // interrompe a execução da função sem redirecionar
+        return false;
     }
 
-    // Verifica se pelo menos um item foi escolhido em cada categoria
     if (
         escolhaCobertura.length === 0 ||
         escolhaFrutas.length === 0 ||
         escolhaComplementos.length === 0
     ) {
         alert("Por favor, escolha ao menos uma seleção em cada categoria -> COBERTURA/FRUTAS/COMPLEMENTO.");
-        return false; // interrompe a execução da função sem redirecionar
+        return false;
     }
+    //MENSAGEM ZAP
+    const nomeRua = document.getElementById('nomeRua').value;
+    const numeroCasa = document.getElementById('numeroCasa').value;
+    const cep = document.getElementById('cep').value;
+    const cidade = document.getElementById('cidade').value;
+    const bairro = document.getElementById('bairro').value;
 
-    //TRECHO PARA MANDAR A MENSAGEM VIA ZAP
+    // Obtenha a forma de pagamento selecionada
+    const formaPagamento = document.querySelector('input[name="pagamento"]:checked');
+
+    // Verifique se os campos obrigatórios estão preenchidos e se a forma de pagamento foi selecionada
+    if (!nomeRua || !numeroCasa || !cep || !cidade || !bairro || !formaPagamento) {
+        alert("Por favor, preencha todos os campos obrigatórios e selecione uma forma de pagamento.");
+        return false; // Impede o envio do formulário
+    }
+    const totalSoma = calcularSoma();
     const textoParaEnviar =
-        `Olá , Gostaria de Realizar Meu Pedido:
-    \nTamanho
-    Produto: ${escolhaProduto}
-    \nAcompanhamentos
-    Cobertura: ${escolhaCobertura.join(', ')}
-    Frutas: ${escolhaFrutas.join(', ')}
-    Complementos: ${escolhaComplementos.join(', ')}
-    Extras: ${escolhaExtras.join(', ')}`;
+        `Olá, Gostaria de Realizar Meu Pedido:
+        \n*Tamanho*
+        \n*Produto:* \n*${escolhaProduto}
+        \n*Acompanhamentos*
+        \n*Cobertura:* \n${escolhaCobertura.join('\n')}
+        \n*Frutas:* \n${escolhaFrutas.join('\n')}
+        \n*Complementos:* \n${escolhaComplementos.join('\n')}
+        \n*Extras:* \n${escolhaExtras.join('\n')}
+        \n*Endereço*
+        *Rua:* ${nomeRua}
+        *Número:* ${numeroCasa}
+        *CEP:* ${cep}
+        *Cidade:* ${cidade}
+        *Bairro:* ${bairro}
+        \n*Forma de Pagamento:* ${formaPagamento.value}
+        \n*TOTAL GERAL: *`;
 
-    const codigoPais = '55';  // Substitua pelo código do país desejado
-    const numeroTelefone = '87991614277';  // Substitua pelo número do seu telefone com o código do país
+    const codigoPais = '55';
+    const numeroTelefone = '87991614277';
     const linkWhatsApp = `https://wa.me/${codigoPais}${numeroTelefone}?text=${encodeURIComponent(textoParaEnviar)}`;
 
     window.location.href = linkWhatsApp;
@@ -116,42 +183,3 @@ function validarSelecoes() {
     return false;
 }
 
-/*====================================================================================================*/
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Função para calcular a soma dos valores selecionados
-    function calcularSoma() {
-        var checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-        var total = 0;
-
-        checkboxes.forEach(function (checkbox) {
-            var valorTexto = checkbox.value.trim();
-            var valor = extrairValor(valorTexto);
-
-            if (!isNaN(valor)) {
-                total += valor;
-            }
-        });
-
-        alert('Total: R$ ' + total.toFixed(2));
-    }
-
-    // Função auxiliar para extrair o valor numérico de uma string
-    function extrairValor(texto) {
-    var valor = parseFloat(texto.replace(",", ".").replace(/[^\d.-]/g, ''));
-
-    return isNaN(valor) ? 0 : valor;
-}
-
-    // Adiciona um ouvinte de evento ao botão para chamar a função de calcularSoma
-    var botoesCalcular = document.querySelectorAll('.botaoAcomp');
-    if (botoesCalcular.length > 0) {
-        botoesCalcular.forEach(function (botao) {
-            botao.addEventListener('click', calcularSoma);
-        });
-    }
-});
-
- 
