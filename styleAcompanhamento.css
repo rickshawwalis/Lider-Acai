@@ -58,6 +58,11 @@ label {
     text-align: center;
 }
 
+.tituloeNDEREÇO{
+    margin-top: 50px;
+    text-align: center;
+}
+
 .estruturaCheckBox {
     display: flex;
     justify-content: center;
