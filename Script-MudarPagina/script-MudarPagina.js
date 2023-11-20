@@ -30,7 +30,7 @@ function selecionarProduto() {
             window.location.href = "../pote480/ACOMPANHAMENTO/pagina-Acompanhamento.html"; // Insira o caminho da página desejada
         }
         else if (produtoSelecionado.id === "marmita500") {
-            window.location.href = "../copo500/ACOMPANHAMENTO/pagina-Acompanhamento.html"; // Insira o caminho da página desejada
+            window.location.href = "../marmita500/ACOMPANHAMENTO/pagina-Acompanhamento.html"; // Insira o caminho da página desejada
         }
         else {
             alert("ID do produto não reconhecido");
