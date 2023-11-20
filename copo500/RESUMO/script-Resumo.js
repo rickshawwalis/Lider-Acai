@@ -32,7 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
     <br><span style="font-weight: bold;">COBERTURA:</span> <br>${formatarObjetoParaString(escolhaCobertura)}
     <br><br><span style="font-weight: bold;">FRUTAS:</span> <br>${formatarObjetoParaString(escolhaFrutas)}
     <br><br><span style="font-weight: bold;">COMPLEMENTO:</span> <br>${formatarObjetoParaString(escolhaComplementos)}
-    <br><br><span style="font-weight: bold;">EXTRAS:</span> <br>${formatarObjetoParaString(escolhaExtras)} <br>`;
+    <br><br><span style="font-weight: bold;">EXTRAS:</span> <br>${formatarObjetoParaString(escolhaExtras)} <br>
+    --------------------------------------------------------
+    `;
 
   // CALCULO ---------------------------------
   const somarArray = (array) => {
@@ -50,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Construir o texto com os resultados
   document.getElementById('gastoGeral').innerHTML = `
-  <br>--------------------------------------------------------
 <br><span style="font-weight: bold;">RESUMO TOTAL À PAGAR(R$)</span><br>
 <span style="font-weight: bold;">Tamanho R$:</span> ${valorProduto} <br>
 <span style="font-weight: bold;">Cobertura R$:</span> ${somaCobertura.toFixed(2)} <br>
@@ -58,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
 <span style="font-weight: bold;">Complementos R$:</span> ${somaComplementos.toFixed(2)} <br>
 <span style="font-weight: bold;">Extras R$:</span> ${somaExtras.toFixed(2)} <br>
 <span style="font-weight: bold;">VALOR TOTAL R$:</span> ${somaTotal.toFixed(2)}
-<br><br>--------------------------------------------------------
 `;
 
 
