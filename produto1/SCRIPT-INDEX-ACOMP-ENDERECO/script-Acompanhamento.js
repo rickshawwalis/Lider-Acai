@@ -15,7 +15,7 @@ function selecionarProduto() {
 
         // Cria condições para cada ID existente
         if (produtoSelecionado.id === "produto01") {
-            window.location.href = "../produto1/ACOMPANHAMENTO/pagina-Acompanhamento.html";
+            window.location.href = "produto1/ACOMPANHAMENTO/pagina-Acompanhamento.html";
         }
         else if (produtoSelecionado.id === "produto02") {
             window.location.href = ""; // Insira o caminho da página desejada
