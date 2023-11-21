@@ -87,39 +87,20 @@ label {
 }
 
 .LOGO {
-    margin-bottom: 30px;
+    margin: auto;
+    margin-bottom: 15px;
     width: 250px;
     height: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate; 
+    border-radius: 80px;
+    box-shadow: 1px 1px 20px purple;
 
 }
 
-@keyframes flutuar{
-    0%{
-           top: 0px;
-    }
-     100%{
-           top: 30px;
-     }
-}
-
-
-main {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.endereco{
-    display: flex;
-    flex-direction: column;
-    margin: 50px;
-}
-
-.labelPag{
-    margin: auto;
+.TextoCabe{
+    text-align: center;
+    margin-bottom: 50px;
+ font-weight:bolder;
 }
