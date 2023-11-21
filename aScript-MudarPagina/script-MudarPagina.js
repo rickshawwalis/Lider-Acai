@@ -76,7 +76,7 @@ function selecionarProduto() {
         }
         else {
             alert("ID do produto não reconhecido");
-        }
+        }d
     } else {
         // Caso nenhum produto tenha sido selecionado, exiba uma mensagem ou faça algo apropriado
         alert("Por favor, selecione um produto.");
