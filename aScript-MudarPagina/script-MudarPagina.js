@@ -63,7 +63,6 @@ function selecionarProduto() {
             window.location.href = "../../Lider-Acai/copo500/pagina-Acompanhamento.html"; // Insira o caminho da página desejada
         }
         else if (produtoSelecionado.id === "pote240") {
-            asdksadk  wdsd
             window.location.href = "../../Lider-Acai/pote240/pagina-Acompanhamento.html"; // Insira o caminho da página desejada
         }
         else if (produtoSelecionado.id === "pote360") {
