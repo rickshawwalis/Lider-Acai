@@ -38,48 +38,65 @@ section {
 
 /*Botão*/
 .acompanhamento {
-    margin: 40px 0px 80px 100px;
-    background-color: rgba(137, 43, 226, 0.699);
+    background-color: rgba(71, 4, 97);
     height: 50px;
     width: 200px;
     border-radius: 100px;
     box-shadow: 1px 2px 20px;
-    border: green;
+    border: rgba(71, 4, 97);
     cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    color: rgb(39, 252, 6);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: rgb(254, 255, 253);
     transition: .5s;
+    font-weight: bolder;
 }
 
 .acompanhamento:hover {
-    color: green;
+    color: rgb(128, 205, 42);
 }
 
-#valorTroco{
+.img-button {
+    width: 80px;
+    height: 80px;
+    margin: -15px;
+}
+
+.botano {
+    background-color: aqua;
+    margin: 0px 0px 0px 80px;
+}
+
+#valorTroco {
     width: 300px;
 }
 
 /* Para navegadores modernos que suportam o seletor ::placeholder */
 ::placeholder {
-    color: #ff0303; /* Substitua pela cor desejada */
-  }
-  
-  /* Para navegadores mais antigos que suportam apenas o seletor ::-webkit-input-placeholder */
-  :-webkit-input-placeholder {
-    color: #ff0303; /* Substitua pela cor desejada */
-  }
-  
-  /* Para navegadores mais antigos que suportam apenas o seletor ::-moz-placeholder */
-  :-moz-placeholder {
-    color: #ff0303; /* Substitua pela cor desejada */
-  }
-  
-  /* Para navegadores mais antigos que suportam apenas o seletor :-ms-input-placeholder */
-  :-ms-input-placeholder {
-    color: #ff0303; /* Substitua pela cor desejada */
-  }
-  
-  h1{
+    color: #ff0303;
+    /* Substitua pela cor desejada */
+}
+
+/* Para navegadores mais antigos que suportam apenas o seletor ::-webkit-input-placeholder */
+:-webkit-input-placeholder {
+    color: #ff0303;
+    /* Substitua pela cor desejada */
+}
+
+/* Para navegadores mais antigos que suportam apenas o seletor ::-moz-placeholder */
+:-moz-placeholder {
+    color: #ff0303;
+    /* Substitua pela cor desejada */
+}
+
+/* Para navegadores mais antigos que suportam apenas o seletor :-ms-input-placeholder */
+:-ms-input-placeholder {
+    color: #ff0303;
+    /* Substitua pela cor desejada */
+}
+
+h1 {
     margin: 40px 0px 50px 30px;
-  }
+    color: rgba(71, 4, 97);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
