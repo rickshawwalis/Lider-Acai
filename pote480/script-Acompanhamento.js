@@ -56,7 +56,7 @@ function concluirPedido() {
     if (
         escolhaCobertura.length > 1 ||
         escolhaFrutas.length > 2 ||
-        escolhaComplementos.length > 5
+        escolhaComplementos.length > 4
     ) {
         alert("Por favor, escolha apenas a quantidade de OPÇÕES permitida.");
         return false;
@@ -78,5 +78,5 @@ function concluirPedido() {
     sessionStorage.setItem('escolhaExtras', JSON.stringify(escolhaExtras));
 
     // Redirecionar para a próxima página
-    window.location.href = '../../aENDERECO/pagina-Endereco.html';
+    window.location.href = '/aENDERECO/pagina-Endereco.html';
 }
