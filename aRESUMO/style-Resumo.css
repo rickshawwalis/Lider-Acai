@@ -62,10 +62,11 @@ section {
     margin: -15px;
 }
 
-.botano {
-    background-color: aqua;
-    margin: 0px 0px 0px 80px;
-}
+.botano{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 0px 0px 60px;
+    }
 
 #valorTroco {
     width: 300px;

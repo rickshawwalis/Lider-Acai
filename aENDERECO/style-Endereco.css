@@ -67,9 +67,9 @@ label {
 }
 
 .botano{
-text-align: center;
 display: flex;
 flex-direction: row;
+margin: 0px 0px 0px 80px;
 }
 
 
