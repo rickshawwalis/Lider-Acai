@@ -14,7 +14,7 @@ function selecionarProduto() {
         sessionStorage.setItem('valorProduto', valorProduto);
 
         // Cria condições para cada ID existente
-        if (produtoSelecionado.id === "copo300") {
+        if (produtoSelecionado.id === "copo300") {d
             window.location.href = "../../Lider-Acai/copo300/ACOMPANHAMENTO/pagina-Acompanhamento.html";
         }
         else if (produtoSelecionado.id === "copo500") {
