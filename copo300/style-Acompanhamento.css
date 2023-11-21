@@ -11,26 +11,38 @@ body {
     font-size: 16px;
 }
 
+/* ----------------------------------------- */
+
+.tituloCabecalho {
+    /* altera o titulo */
+    text-align: center;
+}
+
 .CaixasAcompanhamentos {
     margin: auto;
     display: flex;
     flex-direction: column;
     max-width: 500px;
     width: 430px;
-
 }
 
 .estruturaCheckBox {
+    /* altera o layout do input checkbox */
     display: flex;
     flex-direction: column;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 label {
+    /* altera o texto presente dentro dos input checkbox */
     margin-top: -15px;
+    margin-bottom: 5px;
 }
 
 .checkbox-container {
+    /* altera os input checkbox */
     width: 300px;
     padding-left: 10px;
     padding: 5px;
@@ -44,32 +56,20 @@ label {
 }
 
 .checkbox-container label {
+    /* altera a margem entre o [] e o texto */
     margin-left: 20px;
-    /* Ajuste a margem conforme necessário */
 }
 
 .tituloA {
-    margin-top: 10px;
+    /* altera o texto sobre cada input checkbox */
+    margin-top: 20px;
     margin-bottom: -15px;
     text-align: center;
+    font-weight: bolder;
 }
 
-.tituloCabecalho {
-    text-align: center;
-}
-
-.tituloeNDEREÇO{
-    margin-top: 50px;
-    text-align: center;
-}
-
-.estruturaCheckBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.botaoAcomp{
+.botaoAcomp {
+    /* altera o layout do botão */
     margin-left: 110px;
     margin-top: 30px;
     margin-bottom: 50px;
@@ -77,7 +77,7 @@ label {
     height: 50px;
     width: 200px;
     border-radius: 100px;
-    box-shadow: 1px 2px 20px; 
+    box-shadow: 1px 2px 20px;
     border: green;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
@@ -87,8 +87,10 @@ label {
 }
 
 .LOGO {
+    /* altera a imagem do topo */
     margin: auto;
     margin-bottom: 15px;
+    margin-top: 50px;
     width: 250px;
     height: 250px;
     display: flex;
@@ -99,8 +101,9 @@ label {
 
 }
 
-.TextoCabe{
+.TextoCabe {
+     /* altera o texto abaixo da imagem */
     text-align: center;
     margin-bottom: 50px;
- font-weight:bolder;
+    font-weight: bolder;
 }
