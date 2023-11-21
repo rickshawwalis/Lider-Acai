@@ -78,5 +78,5 @@ function concluirPedido() {
     sessionStorage.setItem('escolhaExtras', JSON.stringify(escolhaExtras));
 
     // Redirecionar para a próxima página
-    window.location.href = '../ENDERECO/pagina-Endereco.html';
+    window.location.href = '../../aENDERECO/script-Endereco.js';
 }
