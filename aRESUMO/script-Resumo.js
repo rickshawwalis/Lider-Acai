@@ -62,9 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
 `;
 
 
-
-
-
   // Exibir ENDEREÇO----------------------------------------------------
   document.getElementById('produtoEndereco').innerHTML = `
   --------------------------------------------------------
@@ -74,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   <br><span style="font-weight: bold;">CEP:</span> ${endereco.cep}
   <br><span style="font-weight: bold;">Cidade:</span> ${endereco.cidade}
   <br><span style="font-weight: bold;">Bairro:</span> ${endereco.bairro}
+  <br><span style="font-weight: bold;">Ponto de Referência:</span> ${endereco.referencia}
   
   `;
 
@@ -185,6 +183,7 @@ ${document.querySelector('input[name="pagamento"]:checked').value === 'DINHEIRO'
 *CEP:* ${endereco.cep}
 *Cidade:* ${endereco.cidade}
 *Bairro:* ${endereco.bairro}
+Ponto de Referência:${endereco.referencia}
 `;
 
   const codigoPais = '55';

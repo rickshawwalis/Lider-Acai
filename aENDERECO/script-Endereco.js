@@ -5,6 +5,7 @@ const FormEnd = () => {
     let cep = document.getElementById('cep').value;
     let cidade = document.getElementById('cidade').value;
     let bairro = document.getElementById('bairro').value;
+    let referencia = document.getElementById('referencia').value;
 
     if (nomeRua && numeroCasa && cep && cidade && bairro) {
         let endereco = {
@@ -13,6 +14,7 @@ const FormEnd = () => {
             cep: cep,
             cidade: cidade,
             bairro: bairro,
+            referencia: referencia,
         };
 
         sessionStorage.setItem('endereco', JSON.stringify(endereco));
