@@ -78,5 +78,5 @@ function concluirPedido() {
     sessionStorage.setItem('escolhaExtras', JSON.stringify(escolhaExtras));
 
     // Redirecionar para a próxima página
-    window.location.href = '../aRESUMO/pagina-Resumo.html';
+    window.location.href = '/aENDERECO/pagina-Endereco.html';
 }
