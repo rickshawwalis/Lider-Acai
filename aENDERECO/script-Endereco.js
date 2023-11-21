@@ -17,7 +17,7 @@ const FormEnd = () => {
 
         sessionStorage.setItem('endereco', JSON.stringify(endereco));
 
-        window.location.href = '../RESUMO/pagina-Resumo.html';
+        window.location.href = '../aRESUMO/';
     } else {
         alert('Por favor, preencha todos os campos do Endereço para Entrega.');
         return false; // Impede o envio do formulário se a validação falhar
