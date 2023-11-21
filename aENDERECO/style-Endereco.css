@@ -7,6 +7,8 @@
 body {
     background-color: #ffffff;
     height: 1200px;
+    color: rgba(71, 4, 97);
+    font-weight: bolder;
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
 }
@@ -30,61 +32,45 @@ label {
     margin-top: -15px;
 }
 
-.checkbox-container {
-    width: 300px;
-    padding-left: 10px;
-    padding: 5px;
-    border: 1px solid;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    align-items: start;
-    gap: 2px;
-    box-shadow: 1px 1px 10px rgba(128, 0, 128, 0.678);
-}
 
-.checkbox-container label {
-    margin-left: 20px;
-    /* Ajuste a margem conforme necessário */
-}
-
-.tituloA {
-    margin-top: 10px;
-    margin-bottom: -15px;
-    text-align: center;
-}
-
-.tituloCabecalho {
-    text-align: center;
-}
-
-.tituloeNDEREÇO{
+.tituloeNDEREÇO {
     margin-top: 50px;
     text-align: center;
+    color: rgba(71, 4, 97);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.estruturaCheckBox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.botaoAcomp{
-    margin-left: 110px;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    background-color: rgba(137, 43, 226, 0.699);
+/*Botão*/
+.acompanhamento {
+    background-color: rgba(71, 4, 97);
     height: 50px;
     width: 200px;
     border-radius: 100px;
-    box-shadow: 1px 2px 20px; 
-    border: green;
+    box-shadow: 1px 2px 20px;
+    border: rgba(71, 4, 97);
     cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
-    color: rgb(39, 252, 6);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+    color: rgb(254, 255, 253);
     transition: .5s;
+    font-weight: bolder;
 }
+
+.acompanhamento:hover {
+    color: rgb(128, 205, 42);
+}
+
+.img-button {
+    width: 80px;
+    height: 80px;
+    margin: -15px;
+}
+
+.botano{
+  background-color: aqua;
+  margin: 0px 0px 0px 80px;
+}
+
 
 .LOGO {
     margin-bottom: 30px;
@@ -94,17 +80,18 @@ label {
     justify-content: center;
     align-items: center;
     position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate; 
+    animation: flutuar 2s ease-in-out infinite alternate;
 
 }
 
-@keyframes flutuar{
-    0%{
-           top: 0px;
+@keyframes flutuar {
+    0% {
+        top: 0px;
     }
-     100%{
-           top: 30px;
-     }
+
+    100% {
+        top: 30px;
+    }
 }
 
 
@@ -114,12 +101,12 @@ main {
     flex-direction: column;
 }
 
-.endereco{
+.endereco {
     display: flex;
     flex-direction: column;
     margin: 50px;
 }
 
-.labelPag{
+.labelPag {
     margin: auto;
 }
