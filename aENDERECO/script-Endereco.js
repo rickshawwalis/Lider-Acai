@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
         Retiradas[i].addEventListener('click', naoRetirar);
     }
 
-    function limparFormulario() {
+    function limparFormulario() { //limpa o que foi preenchido no formulario
         document.getElementById('nomeRua').value = '';
         document.getElementById('numeroCasa').value = '';
         document.getElementById('cep').value = '';
@@ -51,12 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
             let NaoEntregar = document.querySelector('#myForm');
             let botao = document.querySelector(".botano")
 
-            if (escolhaEntrega.value === 'NÃO') {
+            if (escolhaEntrega.value === 'NÃO') { //caso seja escolhido não retirar
                 NaoEntregar.style.display = 'block';
                 botao.style.display = 'none';
                 sessionStorage.setItem('escolhaEntrega', escolhaEntrega.value);
             } else {
-                NaoEntregar.style.display = 'none';
+                NaoEntregar.style.display = 'none'; //caso seja escolhido sim retirar
                 botao.style.display = 'block';
                 sessionStorage.setItem('escolhaEntrega', escolhaEntrega.value);
                 limparFormulario();

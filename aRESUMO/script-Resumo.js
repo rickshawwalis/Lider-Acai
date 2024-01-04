@@ -77,14 +77,14 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 
   //FORMA DE PAGAMENTO
-  var formasPagamento = document.getElementsByName('pagamento');
-  for (var i = 0; i < formasPagamento.length; i++) {
+  let formasPagamento = document.getElementsByName('pagamento');
+  for (let i = 0; i < formasPagamento.length; i++) {
     formasPagamento[i].addEventListener('change', mostrarTroco);
   }
 
   function mostrarTroco() {
-    var escolhaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
-    var trocoSection = document.getElementById('trocoSection');
+    let escolhaPagamento = document.querySelector('input[name="pagamento"]:checked').value;
+    let trocoSection = document.getElementById('trocoSection');
 
     if (escolhaPagamento === 'DINHEIRO') {
       trocoSection.style.display = 'block';
@@ -97,6 +97,12 @@ document.addEventListener('DOMContentLoaded', function () {
   //ENVIAR ZAP----------------------------------------------
   function enviarMensagemWhatsApp() {
     // Constrói o texto a ser enviado
+    const formaPagamentoSelecionada = document.querySelector('input[name="pagamento"]:checked');
+    if (!formaPagamentoSelecionada) { //emite um alert caso nenhuma forma de pagamento seja escolhida
+      alert("Por favor! Escolha uma forma de pagamento!");
+      return;
+    }
+
     const textoParaEnviar = `
 *TAMANHO*
 *Produto:* ${dataText} - Valor: ${valorProduto}
@@ -118,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function () {
 \n*FORMA DE PAGAMENTO*
 ${document.querySelector('input[name="pagamento"]:checked').value}
 ${document.querySelector('input[name="pagamento"]:checked').value === 'DINHEIRO' && document.getElementById('valorTroco').value.trim() !== '' ? '\n*VALOR DE TROCO (R$)*\n' + document.getElementById('valorTroco').value : ''}
-
 \n*RETIRADA NO LOCAL*
 ${retiradaProduto}
 
@@ -134,7 +139,7 @@ ${retiradaProduto}
     const codigoPais = '55';
     //const numeroTelefone = '8791793828';
     const numeroTelefone = '87991614277';
-     const linkWhatsApp = `https://wa.me/${codigoPais}${numeroTelefone}?text=${encodeURIComponent(textoParaEnviar)}`;
+    const linkWhatsApp = `https://wa.me/${codigoPais}${numeroTelefone}?text=${encodeURIComponent(textoParaEnviar)}`;
     window.open(linkWhatsApp, '_blank');
   }
 
