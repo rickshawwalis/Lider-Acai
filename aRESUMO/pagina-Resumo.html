@@ -17,7 +17,7 @@
         <div id="produtoInfo"></div>
         <div id="escolhasInfo"></div>
         <div id="gastoGeral"></div>
-        <p>--------------------------------------------------------</p>
+           <p>--------------------------------------------------------</p>
                <div class="formulario">
             <br><br>
             <label for="pagamento"><strong>FORMA DE PAGAMENTO:</strong></label>
@@ -28,22 +28,21 @@
             <input type="radio" name="pagamento" id="dinheiro" value="DINHEIRO">
             <label for="" class="labelPag">DINHEIRO</label>
 
-            <input type="radio" name="pagamento" id="dinheiroCartao" value="DINHEIRO CARTÃO">
-            <label for="" class="labelPag">DINHEIRO CARTÃO</label>
-
             <input type="radio" name="pagamento" id="cartaoCredito" value="CARTÃO DE CRÉDITO">
-            <label for="" class="labelPag">CARTÃO DE CRÉDITO</label>
+            <label for="" class="labelPag">CARTÃO</label>
         </div>
 
         <div id="trocoSection" style="display: none;">
             <label for="valorTroco"><strong>Troco para quanto? (R$):</strong></label>
             <input type="text" id="valorTroco" name="valorTroco" placeholder="Informe se precisa de troco e para quanto">
         </div>
+        <!--ESTRUTURA RETIRADA E ENDEREÇO-->
+        <div id="retirada"></div>
         <div id="produtoEndereco"></div>
 
     </div>
     <div class="botano"><img src="../img-Index/BOTAO2.jpg" alt="" srcset="" class="img-button">
-        <button type="button" onclick="enviarMensagemWhatsApp()" class="acompanhamento" id="enviarZAPZAP">
+        <button type="button" class="acompanhamento" id="enviarZap">
             CONCLUIR
         </button>
     </div>
