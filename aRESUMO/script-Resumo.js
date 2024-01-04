@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
            \n*FORMA DE PAGAMENTO*
            ${document.querySelector('input[name="pagamento"]:checked').value}
            ${document.querySelector('input[name="pagamento"]:checked').value === 'DINHEIRO' && document.getElementById('valorTroco').value.trim() !== '' ? '\n*VALOR DE TROCO (R$)*\n' + document.getElementById('valorTroco').value : ''}
+          
            \n*RETIRADA NO LOCAL*
            ${retiradaProduto}
    
