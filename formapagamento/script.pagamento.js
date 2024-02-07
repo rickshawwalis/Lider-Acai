@@ -139,6 +139,7 @@ const enviarMensagemWhatsApp=()=> {
       }
     }
 
+  
      //TRECHO PARA GERAR ENDEREÇO 
      const endereco = JSON.parse(sessionStorage.getItem('endereco')) || {};
      const retiradaProduto = sessionStorage.getItem('escolhaEntrega')
