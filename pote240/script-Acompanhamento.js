@@ -170,7 +170,7 @@ const validacoes = () => {
         //location.reload();
         Armazenar_Mais_Menos();
         // Redirecionar para a próxima página
-        window.location.href = '/LIDER-ACAI/aRESUMO/pagina-Resumo.html';
+        window.location.href = '/Lider-Acai/aRESUMO/pagina-Resumo.html';
         //window.location.href = '../aRESUMO/pagina-Resumo.html';
     }
 
